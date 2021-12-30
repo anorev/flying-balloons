@@ -8,6 +8,9 @@
   --font-size-l: 30px;
   --font-size-reg: 20px;
   --line-height: 30px;
+  --balloon-color-1: black;
+  --balloon-color-2: black;
+  --balloon-color-3: black;
 }
 
 html,
@@ -20,23 +23,102 @@ body {
   color: var(--color-30);
 }
 
-.balloons-wrapper {
-  /* background-color: blue; */
+h1 {
+  margin: 0;
+}
+
+main {
   height: 100%;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+
+
+}
+
+.balloons {
+  list-style: none;
+  padding: 0;
+  margin: 0 100px;
+  z-index: 1;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  border-top: indigo dotted 1px;
+
+}
+
+.balloon {
+  width: 220px;
+  height: 260px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/* .balloon-container {
-  border: greenyellow solid 1px;
-} */
-
-.balloon {
-  width: 400px;
-  height: auto;
-  border: greenyellow solid 1px;
+.balloon--inner-wrapper {
+  flex: 1 1 auto;
+  width: 100%;
+  animation: balloons 4s ease-in-out infinite;
+  transform-origin: bottom center;
+  transition: transform 0.5s ease;
 }
 
-@media only screen and (min-width: 560px) {
+.balloon__head {
+  display: block;
+  position: absolute;
+  min-width: 220px;
+  height: 260px;
+  background: hsl(215, 50%, 65%);
+  background: rgba(102, 145, 204, 1);
+  border-radius: 80%;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+  z-index: 2;
+
+
+}
+
+.balloon__tail:before {
+  content: "▲";
+  font-size: 40px;
+  color: hsl(215, 30%, 50%);
+  color: rgba(88, 125, 176, 1);
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: -15px;
+  left: -20px;
+  z-index: -100;
+}
+
+.balloon__tail {
+  cursor: grab;
+  border: dotted orangered 1px;
+  display: inline-block;
+  top: 250px;
+  position: absolute;
+  height: 200px;
+  width: 2px;
+  left: 110px;
+  z-index: -1;
+  content: "";
+  background: rgba(0, 0, 0, 0.1);
+
+}
+
+
+@keyframes balloons {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
 }
