@@ -27,22 +27,22 @@ h1 {
   margin: 0;
 }
 
-main {
+#global-wrapper {
   height: 100%;
   width: 100%;
   margin: 0;
   position: fixed;
-
-
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 .balloons {
   list-style: none;
   padding: 0;
-  margin: 0 100px;
+  /* margin: 0 100px; */
   z-index: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
   border-top: indigo dotted 1px;
@@ -59,6 +59,7 @@ main {
   align-items: center;
 }
 
+
 .balloon--inner-wrapper {
   flex: 1 1 auto;
   width: 100%;
@@ -72,8 +73,8 @@ main {
   position: absolute;
   min-width: 220px;
   height: 260px;
-  background: hsl(215, 50%, 65%);
-  background: rgba(102, 145, 204, 1);
+  background: radial-gradient(circle, rgba(255,255,255,.7) 0%, rgba(255,255,255,.1) 100%);
+  background-color: rgba(150, 0, 0, .95);
   border-radius: 80%;
   box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
   z-index: 2;
@@ -81,11 +82,11 @@ main {
 
 }
 
-.balloon__tail:before {
+/* .balloon__tail:before {
   content: "▲";
   font-size: 40px;
-  color: hsl(215, 30%, 50%);
-  color: rgba(88, 125, 176, 1);
+
+  background-color: rgba(150, 0, 0, 0.192);
   display: block;
   text-align: center;
   width: 100%;
@@ -93,11 +94,11 @@ main {
   top: -15px;
   left: -20px;
   z-index: -100;
-}
+} */
 
 .balloon__tail {
   cursor: grab;
-  border: dotted orangered 1px;
+  /* border: dotted orangered 1px; */
   display: inline-block;
   top: 250px;
   position: absolute;
@@ -121,4 +122,16 @@ main {
   50% {
     transform: translateY(-25px) rotate(4deg);
   }
+}
+
+#balloon1 .balloon--inner-wrapper {
+  animation-duration: 5.5s;
+}
+
+#balloon2 .balloon--inner-wrapper {
+  animation-duration: 6.5s;
+}
+
+#balloon3 .balloon--inner-wrapper {
+  animation-duration: 6s;
 }
